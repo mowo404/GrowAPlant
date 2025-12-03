@@ -3,11 +3,18 @@ Rain rain;
 Flower flower;
 ArrayList<Rain> rainDrops = new ArrayList<Rain>();
 PImage cloud;
+PImage flowa;
 
 void setup() {
   cloud = loadImage("cloud.png");
+  flowa = loadImage("flower2.png");
   size(400, 500);
   
+  // Initialize stem and flower
+  stem = new Stem(width/2, height - 100);
+  flower = new Flower(width/2, height - 180); 
+
+
   //loop for raindrops
    for (int i=0; i < 50; i++) {
     Rain rainfall = new Rain();
@@ -18,6 +25,8 @@ void setup() {
 
 void draw() {
   background(200, 220, 255);
+  stem.display();
+  flower.display();
   
   //draw cloud w pimage sprite
   fill(255);
@@ -28,5 +37,5 @@ void draw() {
     Rain r = rainDrops.get(i);
     r.update();
     r.display();
- }
+    }   
 }

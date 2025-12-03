@@ -1,11 +1,14 @@
 class Flower {
-  float y;
+  float x,y;
   
-  Flower(){}
-  
-  void display(){
+  Flower(float x_, float y_) {
+    x = x_;
+    y = y_;
+  }
+  void display() {
     fill(255, 46, 123);
-    ellipse(100, y, 150, 150);
+    noStroke();
+    image(flowa, x - 23, y, 50, 50);
   }
 }
     
