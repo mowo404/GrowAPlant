@@ -4,10 +4,12 @@ Flower flower;
 ArrayList<Rain> rainDrops = new ArrayList<Rain>();
 PImage cloud;
 PImage flowa;
+PImage rainf;
 
 void setup() {
   cloud = loadImage("cloud.png");
   flowa = loadImage("flower2.png");
+  rainf = loadImage("rain2.png");
   size(400, 500);
   
   // Initialize stem and flower
@@ -18,13 +20,13 @@ void setup() {
   //loop for raindrops
    for (int i=0; i < 50; i++) {
     Rain rainfall = new Rain();
-    rainfall.p = new PVector(random(width), random(400, 0)); //rainfall is positioned at the middle of the screen and at random x and y positions.
+    rainfall.p = new PVector(random(width), random(5, 0)); //rainfall is positioned at the middle of the screen and at random x and y positions.
     rainDrops.add(rainfall);
  }
 }
 
 void draw() {
-  background(200, 220, 255);
+  background(152, 240, 255);
   stem.display();
   flower.display();
   

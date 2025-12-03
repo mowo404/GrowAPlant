@@ -12,7 +12,7 @@ class Rain {
   //function to draw rainfall
   void display() {
     stroke(0, 100, 255);
-    line(p.x, p.y, p.x, p.y + 10);
+    image(rainf, p.x, p.y, 10, 20);
   }
 
   //function for rainfall movement using acceleration and velocity vectors.

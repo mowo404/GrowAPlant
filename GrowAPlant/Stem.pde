@@ -8,9 +8,9 @@ class Stem {
     
   
   void display() {
-    fill(255, 0, 150);
-    stroke(0, 150, 0);
-    strokeWeight(6);
+    fill(116, 216, 59);
+    stroke(94, 180, 46);
+    strokeWeight(4);
     line(x, y, x, y - 50);
   }
 }
