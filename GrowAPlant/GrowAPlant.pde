@@ -7,44 +7,40 @@ PImage flowa;
 PImage rainf;
 
 void setup() {
+  size(400, 500);
+
   cloud = loadImage("cloud.png");
   flowa = loadImage("flower2.png");
   rainf = loadImage("rain2.png");
-  size(400, 500);
   
-  // Initialize stem and flower
   stem = new Stem(width/2, height - 100);
-  flower = new Flower(width/2, height - 180); 
-
-
-  //loop for raindrops, initializing rain and the pVector for the rainfall. Arraylist for rain droplets to create many of the rain drops.
-
+  flower = new Flower(width/2, height - 180);
 }
 
 void draw() {
   background(152, 240, 255);
+  
+  // Draw stem + flower
   stem.display();
   flower.display();
-  
-   
-  //draw cloud w pimage sprite
-  fill(255);
-  noStroke();
-  image(cloud, mouseX-100, 50, 160, 100);
-  
-  //if mouse is pressed on these x and y cords then make rainfall
-    if (mousePressed) {
-      //check if the mouse is within the cloud x and y regions
-      if(mouseX > mouseX - 100 && mouseX < + 100 && mouseY > 0 && mouseY < 100) {
-    Rain rainfall = new Rain();
-    rainfall.p = new PVector(mouseX + random(width/2), 100); //rainfall is positioned at the middle of the cloud and at random x and y positions.
-    rainDrops.add(rainfall);
-     }
-    }
 
-    for (int i = 0; i < rainDrops.size(); i++) {
-    Rain r = rainDrops.get(i);
+  // Cloud follows mouse (centered)
+  image(cloud, mouseX - 80, 50, 160, 100);
+
+  // Create raindrops when clicking ON the cloud
+  if (mousePressed) {
+
+    // inline hit detection (no extra function)
+    if (mouseX > mouseX - 80 && mouseX < (mouseX - 80) + 160 && mouseY > 50 && mouseY < 50 + 100) {
+      Rain rainfall = new Rain();
+      rainfall.p = new PVector(mouseX + random(-40, 25), 50 + 80);
+      rainDrops.add(rainfall);
+    }
+  }
+
+  // Update + show rain
+  for (Rain r : rainDrops) {
     r.update();
     r.display();
-    }   
+  }
 }

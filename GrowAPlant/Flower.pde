@@ -8,7 +8,7 @@ class Flower {
   void display() {
     fill(255, 46, 123);
     noStroke();
-    image(flowa, x - 23, y, 50, 50);
+    image(flowa, x - 25, y + 25, 70, 70);
   }
 }
     
