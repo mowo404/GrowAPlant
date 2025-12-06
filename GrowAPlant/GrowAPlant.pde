@@ -43,7 +43,7 @@ void draw() {
     r.update();
     r.display();
     
-  if (r.p.y >= stem.y) { 
+  if (r.p.y >= stem.y - 5 && r.p.y <= stem.y + 5) { 
     stem.grow(); 
    }
   }
