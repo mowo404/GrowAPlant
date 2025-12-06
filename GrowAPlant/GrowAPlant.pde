@@ -45,6 +45,7 @@ void draw() {
     
   if (r.p.y >= stem.y - 5 && r.p.y <= stem.y + 5) { 
     stem.grow(); 
+    flower.grow();
    }
   }
 }
