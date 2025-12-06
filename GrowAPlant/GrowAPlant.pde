@@ -20,17 +20,17 @@ void setup() {
 void draw() {
   background(152, 240, 255);
   
-  // Draw stem + flower
+
   stem.display();
   flower.display();
 
-  // Cloud follows mouse (centered)
+
   image(cloud, mouseX - 80, 50, 160, 100);
 
-  // Create raindrops when clicking ON the cloud
+
   if (mousePressed) {
 
-    // inline hit detection (no extra function)
+
     if (mouseX > mouseX - 80 && mouseX < (mouseX - 80) + 160 && mouseY > 50 && mouseY < 50 + 100) {
       Rain rainfall = new Rain();
       rainfall.p = new PVector(mouseX + random(-40, 25), 50 + 80);
@@ -38,9 +38,13 @@ void draw() {
     }
   }
 
-  // Update + show rain
+
   for (Rain r : rainDrops) {
     r.update();
     r.display();
+    
+  if (r.p.y >= stem.y) { 
+    stem.grow(); 
+   }
   }
 }

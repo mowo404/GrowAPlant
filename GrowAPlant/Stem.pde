@@ -1,5 +1,6 @@
 class Stem {
   float x, y;
+  float growth = 0;
   
   Stem(float x_, float y_) {
   x = x_;
@@ -11,6 +12,10 @@ class Stem {
     fill(116, 216, 59);
     stroke(94, 180, 46);
     strokeWeight(4);
-    line(x, y, x, y - 50);
+    line(x, y, x, y - (50 + growth));
   }
+  
+  void grow() {
+    growth += 1;
+  }    
 }
