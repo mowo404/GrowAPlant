@@ -41,6 +41,12 @@ void draw() {
   if (r.p.y >= stem.y - 10 && r.p.y <= stem.y + 10 && r.p.x >= stem.x - 10 && r.p.x <= stem.x + 10) { 
     stem.grow(); 
     flower.grow();
-   }  
+   }
+  if (stem.growth == stem.maxGrowth && flower.growth == flower.maxGrowth) {
+    r.p.y = 0;
+    r.p.x = 0;
+  
+    
+   }
   } 
 }
