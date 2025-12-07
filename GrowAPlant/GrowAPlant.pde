@@ -27,7 +27,7 @@ void draw() {
 
 
   if (mousePressed) {
-    if (mouseX > mouseX - 80 && mouseX < (mouseX - 80) + 160 && mouseY > 50 && mouseY < 50 + 100) {
+    if (mouseX > (mouseX - 80) && mouseX < (mouseX - 80) + 160 && mouseY > 50 && mouseY < 50 + 100) {
       Rain rainfall = new Rain();
       rainfall.p = new PVector(mouseX + random(-40, 25), 50 + 80);
       rainDrops.add(rainfall);
@@ -38,7 +38,7 @@ void draw() {
     r.update();
     r.display();
     
-  if (r.p.y >= stem.y - 5 && r.p.y <= stem.y + 5) { 
+  if (r.p.y >= stem.y - 10 && r.p.y <= stem.y + 10 && r.p.x >= stem.x - 10 && r.p.x <= stem.x + 10) { 
     stem.grow(); 
     flower.grow();
    }  
