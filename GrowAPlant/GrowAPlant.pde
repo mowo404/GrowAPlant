@@ -2,9 +2,8 @@ Stem stem;
 Rain rain;
 Flower flower;
 ArrayList<Rain> rainDrops = new ArrayList<Rain>();
-PImage cloud;
-PImage flowa;
-PImage rainf;
+PImage cloud, flowa, rainf;
+boolean stopRain = false;
 
 void setup() {
   size(400, 500);
@@ -26,7 +25,7 @@ void draw() {
   image(cloud, mouseX - 80, 50, 160, 100);
 
 
-  if (mousePressed) {
+  if (mousePressed && !stopRain) {
     if (mouseX > (mouseX - 80) && mouseX < (mouseX - 80) + 160 && mouseY > 50 && mouseY < 50 + 100) {
       Rain rainfall = new Rain();
       rainfall.p = new PVector(mouseX + random(-40, 25), 50 + 80);
@@ -43,10 +42,7 @@ void draw() {
     flower.grow();
    }
   if (stem.growth == stem.maxGrowth && flower.growth == flower.maxGrowth) {
-    r.p.y = 0;
-    r.p.x = 0;
-  
-    
+    stopRain = true;
    }
   } 
 }
