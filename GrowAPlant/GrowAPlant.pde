@@ -22,14 +22,15 @@ void draw() {
   
   stem.display();
   flower.display();
+  gameOver();
+ 
   
-  if(!stopRain) {
-  image(cloud, mouseX - 80, 50, 160, 100);
+  if (!stopRain) {
+    image(cloud, mouseX - 80, 50, 160, 100);
+  } else {
+    drawSun();
   }
   
-  if(stopRain) {
-    image(sun, 50, 50, 150, 150);
-  }
 
 
   if (mousePressed && !stopRain) {
@@ -44,7 +45,7 @@ void draw() {
     r.update();
     r.display();
     
-  if (r.p.y >= stem.y - 10 && r.p.y <= stem.y + 10 && r.p.x >= stem.x - 10 && r.p.x <= stem.x + 10) { 
+  if (r.p.y >= stem.y - 10 && r.p.y <= stem.y + 10 && r.p.x >= stem.x - 15 && r.p.x <= stem.x + 15) { 
     stem.grow(); 
     flower.grow();
    }
@@ -53,3 +54,9 @@ void draw() {
    }
   } 
 }
+
+void drawSun() {
+  image(sun, 50, 50, 150, 150);
+}
+
+void gameOver() {}
