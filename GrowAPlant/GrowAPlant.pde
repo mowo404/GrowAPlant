@@ -2,7 +2,7 @@ Stem stem;
 Rain rain;
 Flower flower;
 ArrayList<Rain> rainDrops = new ArrayList<Rain>();
-PImage cloud, flowa, rainf;
+PImage cloud, flowa, rainf,sun;
 boolean stopRain = false;
 
 void setup() {
@@ -11,6 +11,7 @@ void setup() {
   cloud = loadImage("cloud.png");
   flowa = loadImage("flower2.png");
   rainf = loadImage("rain2.png");
+  sun = loadImage("sun.png");
   
   stem = new Stem(width/2, height - 100);
   flower = new Flower(width/2, height - 180);
@@ -21,8 +22,14 @@ void draw() {
   
   stem.display();
   flower.display();
-
+  
+  if(!stopRain) {
   image(cloud, mouseX - 80, 50, 160, 100);
+  }
+  
+  if(stopRain) {
+    image(sun, 50, 50, 150, 150);
+  }
 
 
   if (mousePressed && !stopRain) {
