@@ -63,7 +63,7 @@ void draw() {
 void drawSun() {
   image(sun, 50, 50, 150, 150);
   
-    if (millis() > 6500) {
+    if (millis() > sunTime + 6500) {
     gameOver();
   }
 }
@@ -83,8 +83,11 @@ void gameOver() {
 }
 
 void mousePressed() {
+  if(stopRain && millis() > sunTime + 6500) {
   stopRain = false;
+  sunTime = 0;
   
-  stem.display();
-  flower.display();
+  stem.growth = 0;
+  flower.growth = 0;
+  }
 }
