@@ -4,6 +4,7 @@ Flower flower;
 ArrayList<Rain> rainDrops = new ArrayList<Rain>();
 PImage cloud, flowa, rainf,sun;
 boolean stopRain = false;
+int sunTime = 0;
 
 void setup() {
   size(400, 500);
@@ -22,7 +23,7 @@ void draw() {
   
   stem.display();
   flower.display();
-  gameOver();
+  
  
   
   if (!stopRain) {
@@ -51,12 +52,39 @@ void draw() {
    }
   if (stem.growth == stem.maxGrowth && flower.growth == flower.maxGrowth) {
     stopRain = true;
+    
+    if (!stopRain) {
+    sunTime = millis();   
+    }
    }
   } 
 }
 
 void drawSun() {
   image(sun, 50, 50, 150, 150);
+  
+    if (millis() > 6500) {
+    gameOver();
+  }
 }
 
-void gameOver() {}
+void gameOver() {
+  background(0);
+  textSize(80);
+  textAlign(CENTER);
+  PFont font;
+  font = createFont("Minecraft.ttf", 60);
+  textFont(font);
+  text("Game Over!", width/2, height/2);
+  
+  textSize(30);
+  text("Click to Restart", width/2, height/2 + 60);
+ 
+}
+
+void mousePressed() {
+  stopRain = false;
+  
+  stem.display();
+  flower.display();
+}
