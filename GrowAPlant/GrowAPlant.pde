@@ -20,24 +20,19 @@ void setup() {
 void draw() {
   background(152, 240, 255);
   
-
   stem.display();
   flower.display();
-
 
   image(cloud, mouseX - 80, 50, 160, 100);
 
 
   if (mousePressed) {
-
-
     if (mouseX > mouseX - 80 && mouseX < (mouseX - 80) + 160 && mouseY > 50 && mouseY < 50 + 100) {
       Rain rainfall = new Rain();
       rainfall.p = new PVector(mouseX + random(-40, 25), 50 + 80);
       rainDrops.add(rainfall);
     }
   }
-
 
   for (Rain r : rainDrops) {
     r.update();
@@ -46,6 +41,6 @@ void draw() {
   if (r.p.y >= stem.y - 5 && r.p.y <= stem.y + 5) { 
     stem.grow(); 
     flower.grow();
-   }
-  }
+   }  
+  } 
 }
